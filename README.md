@@ -19,3 +19,5 @@
     <td><img src="images/tsl2561.JPG" height="100px" alt="TSL2561"></td>
   </tr>
 </table>
+
+<h5>Please note: <i>The DHT22 sensor is working with the Adafruit Python DHT Sensor Library</i></h5>
