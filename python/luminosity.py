@@ -14,16 +14,21 @@ bus = smbus.SMBus(1)
 
 
 def get_luminosity():
-    bus.write_byte_data(0x39, 0x00 | 0x80, 0x03)
-    bus.write_byte_data(0x39, 0x01 | 0x80, 0x02)
+    try:
 
-    time.sleep(0.5)
+        bus.write_byte_data(0x39, 0x00 | 0x80, 0x03)
+        bus.write_byte_data(0x39, 0x01 | 0x80, 0x02)
 
-    data = bus.read_i2c_block_data(0x39, 0x0C | 0x80, 2)
-    data1 = bus.read_i2c_block_data(0x39, 0x0E | 0x80, 2)
+        time.sleep(0.5)
 
-    # Convert data
-    ch0 = data[1] * 256 + data[0]
-    ch1 = data1[1] * 256 + data1[0]
+        data = bus.read_i2c_block_data(0x39, 0x0C | 0x80, 2)
+        data1 = bus.read_i2c_block_data(0x39, 0x0E | 0x80, 2)
 
-    return [ch0, ch1, (ch0 - ch1)]
+        # Convert data
+        ch0 = data[1] * 256 + data[0]
+        ch1 = data1[1] * 256 + data1[0]
+
+        return [ch0, ch1, (ch0 - ch1)]
+
+    except Exception:
+        return None
