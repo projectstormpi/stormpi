@@ -8,8 +8,7 @@
 #       and return them formatted
 
 
-import sys, python.temperature as temperature, python.luminosity as luminosity, python.humidity as humidity, \
-    python.airpressure as air_pressure
+import sys, temperature, luminosity, humidity, air_pressure
 
 # Measuring temperature
 temp = temperature.get_temperature()
