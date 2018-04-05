@@ -8,7 +8,7 @@
 #       and return them formatted
 
 
-import sys, temperature, luminosity, humidity, air_pressure
+import temperature, luminosity, humidity, air_pressure
 
 # Measuring temperature
 temp = temperature.get_temperature()
@@ -23,6 +23,8 @@ hum = humidity.get_humidity()
 # Measuring air pressure
 air = air_pressure.get_air_pressure()
 
-print(
-    'Temperature: {}\nWindchill temperature: {}\nLuminosity: {}\nHumidity: {}\nAir pressure: {}'.format(temp, temp_feel,
-                                                                                                        lum, hum, air))
+print('Temperature: {}\n'
+      'Windchill temperature: {}\n'
+      'Luminosity: {}\n'
+      'Humidity: {}\n'
+      'Air pressure: {}'.format(temp, temp_feel, lum, hum, air))
