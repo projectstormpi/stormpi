@@ -5,7 +5,12 @@
 #       Author:     Christian Perl
 
 #       Script for measuring the humidity
-#       by approaching the DHT22 sensor via I2C bus
+#       by approaching the DHT22 sensor
+
+# 	This script is using the
+# 	Adafruit Python DHT Sensor Library
+# 	For further information check out their GitHub
+# 	https://github.com/adafruit
 
 import Adafruit_DHT
 

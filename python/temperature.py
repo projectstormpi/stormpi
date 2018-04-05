@@ -9,10 +9,10 @@
 #       and measuring the windchill temperature
 #       by approaching the DS18B20 sensor
 
-# 	    This script is using the
-# 	    Adafruit Python DHT Sensor Library
-# 	    For further information check out their GitHub
-# 	    https://github.com/adafruit
+# 	This script is using the
+# 	Adafruit Python DHT Sensor Library
+# 	For further information check out their GitHub
+# 	https://github.com/adafruit
 
 import subprocess, Adafruit_DHT
 
