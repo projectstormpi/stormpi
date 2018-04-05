@@ -8,3 +8,22 @@
 #       and return them formatted
 
 
+import sys, python.temperature as temperature, python.luminosity as luminosity, python.humidity as humidity, \
+    python.airpressure as air_pressure
+
+# Measuring temperature
+temp = temperature.get_temperature()
+temp_feel = temperature.get_windchill_temperature()
+
+# Measuring luminosity
+lum = luminosity.get_luminosity()
+
+# Measuring humidity
+hum = humidity.get_humidity()
+
+# Measuring air pressure
+air = air_pressure.get_air_pressure()
+
+print(
+    'Temperature: {}\nWindchill temperature: {}\nLuminosity: {}\nHumidity: {}\nAir pressure: {}'.format(temp, temp_feel,
+                                                                                                        lum, hum, air))

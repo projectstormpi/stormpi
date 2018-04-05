@@ -7,8 +7,8 @@
 #       Script for measuring the air pressure
 #       by approaching the BMP180 sensor via I2C bus
 
-import smbus
-import time
+import smbus, time
+
 
 bus = smbus.SMBus(1)
 

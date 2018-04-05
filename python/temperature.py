@@ -9,7 +9,7 @@
 #       and measuring the windchill temperature
 #       by approaching the DS18B20 sensor
 
-import subprocess
+import subprocess, Adafruit_DHT
 
 
 def get_windchill_temperature():
@@ -17,4 +17,5 @@ def get_windchill_temperature():
 
 
 def get_temperature():
-    
+    humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, 4)
+    return temperature

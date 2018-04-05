@@ -7,8 +7,8 @@
 #       Script for measuring the luminosity
 #       by approaching the TSL2561 sensor via I2C bus
 
-import smbus
-import time
+import smbus, time
+
 
 bus = smbus.SMBus(1)
 
