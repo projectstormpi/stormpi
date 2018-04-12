@@ -7,12 +7,15 @@
 #       Script for measuring the air pressure
 #       by approaching the BMP180 sensor via I2C bus
 
+
 import smbus, time
+
 
 bus = smbus.SMBus(1)
 
 
-def get_air_pressure():
+# returns [ pressure, altitude ]
+def take_measurements():
     try:
 
         # Read data
@@ -95,8 +98,30 @@ def get_air_pressure():
         x1 = (pressure / 256.0) * (pressure / 256.0)
         x1 = (x1 * 3038.0) / 65536.0
         x2 = ((-7357) * pressure) / 65536.0
-        pressure = (pressure + (x1 + x2 + 3791) / 16.0) / 100
 
+        pressure = (pressure + (x1 + x2 + 3791) / 16.0) / 100
+        altitude = 44330 * (1 - ((pressure / 1013.25) ** 0.1903))
+
+        return pressure, altitude
+
+    except Exception:
+        return None
+
+
+def get_altitude():
+    try:
+
+        pressure, altitude = take_measurements()
+        return altitude
+
+    except Exception:
+        return None
+
+
+def get_air_pressure():
+    try:
+
+        pressure, altitude = take_measurements()
         return pressure
 
     except Exception:

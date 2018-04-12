@@ -8,24 +8,22 @@
 #       and return them formatted
 
 
-import temperature, luminosity, humidity, air_pressure
+import DHT22, BMP180, TSL2561, DS18B20
 
 
-# Measuring temperature
-temp = temperature.get_temperature()
-temp_feel = temperature.get_windchill_temperature()
+# Measuring temperature and humidity
+temperature, humidity = DHT22.take_measurements()
+windchill_temperature = DS18B20.get_windchill_temperature()
 
 # Measuring luminosity
-lum = luminosity.get_luminosity()
+full_spectrum, infrared, visible = TSL2561.take_measurements()
 
-# Measuring humidity
-hum = humidity.get_humidity()
-
-# Measuring air pressure
-air = air_pressure.get_air_pressure()
+# Measuring air pressure and altitude
+pressure, altitude = BMP180.take_measurements()
 
 print('Temperature: {}\n'
       'Windchill temperature: {}\n'
       'Luminosity: {}\n'
       'Humidity: {}\n'
-      'Air pressure: {}'.format(temp, temp_feel, lum, hum, air))
+      'Air pressure: {}\n'
+      'Altitude: {}'.format(temperature, windchill_temperature, visible, humidity, pressure, altitude))
