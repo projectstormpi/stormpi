@@ -8,22 +8,25 @@
 #       and return them formatted
 
 
-import DHT22, BMP180, TSL2561, DS18B20
+import DHT22, BMP180, TSL2561, DS18B20, logging
 
+try:
 
-# Measuring temperature and humidity
-temperature, humidity = DHT22.take_measurements()
-windchill_temperature = DS18B20.get_windchill_temperature()
+    # Measuring temperature and humidity
+    temperature, humidity = DHT22.take_measurements()
+    windchill_temperature = DS18B20.take_measurements()
 
-# Measuring luminosity
-full_spectrum, infrared, visible = TSL2561.take_measurements()
+    # Measuring luminosity
+    full_spectrum, infrared, visible = TSL2561.take_measurements()
 
-# Measuring air pressure and altitude
-pressure, altitude = BMP180.take_measurements()
+    # Measuring air pressure and altitude
+    pressure, altitude = BMP180.take_measurements()
 
-print('Temperature: {}\n'
-      'Windchill temperature: {}\n'
-      'Luminosity: {}\n'
-      'Humidity: {}\n'
-      'Air pressure: {}\n'
-      'Altitude: {}'.format(temperature, windchill_temperature, visible, humidity, pressure, altitude))
+    print(
+        't={};w={};h={};f={};i={};v={};p={};a={};'.format(temperature, windchill_temperature, humidity, full_spectrum,
+                                                          infrared, visible, pressure, altitude))
+
+except Exception:
+
+    logging.basicConfig(filename="error.log", level=logging.DEBUG)
+    logging.exception("message")

@@ -34,34 +34,4 @@ def take_measurements():
         return [full, ir, vi]
 
     except Exception:
-        return None
-
-
-def get_full_spectrum():
-    try:
-
-        full, ir, vi = take_measurements()
-        return full
-
-    except Exception:
-        return None
-
-
-def get_infrared():
-    try:
-
-        full, ir, vi = take_measurements()
-        return ir
-
-    except Exception:
-        return None
-
-
-def get_visible():
-    try:
-
-        full, ir, vi = take_measurements()
-        return vi
-
-    except Exception:
-        return None
+        return None, None, None

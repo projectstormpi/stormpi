@@ -8,25 +8,16 @@
 #       by approaching the DS18B20 sensor
 
 
-import subprocess
+import subprocess, re
 
 
 # returns [ temperature ] 
 def take_measurements():
     try:
 
-        command = 'cat /sys/bus/w1/devices/28-0317607fb3ff/w1_slave | tail -c 6'
-        return float(subprocess.check_output(command, shell=True)) / 1000
-
-    except Exception:
-        return None
-
-
-def get_windchill_temperature():
-    try:
-
-        temp = take_measurements()
-        return temp
+        command = 'cat /sys/bus/w1/devices/28-0317607fb3ff/w1_slave | tail -n 1'
+        match = re.search('(?<=t=)-?\d+', str(subprocess.check_output(command, shell=True)))
+        return float(match.group(0)) / 1000
 
     except Exception:
         return None

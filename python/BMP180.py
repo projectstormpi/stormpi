@@ -105,24 +105,4 @@ def take_measurements():
         return pressure, altitude
 
     except Exception:
-        return None
-
-
-def get_altitude():
-    try:
-
-        pressure, altitude = take_measurements()
-        return altitude
-
-    except Exception:
-        return None
-
-
-def get_air_pressure():
-    try:
-
-        pressure, altitude = take_measurements()
-        return pressure
-
-    except Exception:
-        return None
+        return None, None

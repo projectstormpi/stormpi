@@ -17,26 +17,6 @@ import Adafruit_DHT
 
 
 # returns [ humidity, temperature ]
-def get_temperature():
-    try:
-
-        humidity, temperature = take_measurements()
-        return temperature
-
-    except Exception:
-        return None
-
-
-def get_humidity():
-    try:
-
-        humidity, temperature = take_measurements()
-        return humidity
-
-    except Exception:
-        return None
-
-
 def take_measurements():
     try:
 
@@ -44,4 +24,4 @@ def take_measurements():
         return humidity, temperature
 
     except Exception:
-        return None
+        return None, None
