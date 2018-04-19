@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="css1.css">
+  <style>
+
+    body {
+      background-color: ;
+      font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+      background-image: url("img/weather.png");
+    }
+
+    .header {
+      grid-area: header;
+      background-color: ;
+      text-align: center;
+      font-size: 18px;
+      color: white;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-areas: 'header header header header header header' 'left left middle middle right right' 'footer footer footer footer footer footer';
+      grid-column-gap: 10px;
+    }
+
+    .left,
+    .middle,
+    .right {
+      text-align: center;
+      height: 500px;
+    }
+
+    .left {
+      grid-area: left;
+      background-image: url("img/cloudy-day.png");
+    }
+
+    .middle {
+      grid-area: middle;
+      background-image: url("img/sun-pattern.png");
+    }
+
+    .right {
+      grid-area: right;
+      background-image: url("img/topography.png");
+    }
+
+    .footer {
+      grid-area: footer;
+      background-color: #f1f1f1;
+      padding: 10px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .grid-container {
+        grid-template-areas: 'header header header header header header' 'left left left left left left' 'middle middle middle middle middle middle' 'right right right right right right' 'footer footer footer footer footer footer';
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-container">
+    <div class="header">
+      <h1>STORM PI</h1>
+      <h3>Personal Weather Station</h3>
+    </div>
+    <div class="left" style="background-color:#aaa;">
+      <h3>HUMIDITY</h3>
+    </div>
+    <div class="middle" style="background-color:#bbb;">
+      <h3>TEMPERATURE</h3>
+    </div>
+    <div class="right" style="background-color:#ccc;">
+      <h3>PRESSURE</h3>
+    </div>
+    <div class="footer">
+      <p>Footeraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    </div>
+  </div>
+
+</body>
+
+</html>
