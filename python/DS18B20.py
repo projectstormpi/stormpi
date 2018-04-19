@@ -15,7 +15,7 @@ import subprocess, re
 def take_measurements():
     try:
 
-        command = 'cat /sys/bus/w1/devices/28-0317607fb3ff/w1_slave | tail -n 1'
+        command = 'cat /sys/bus/w1/devices/28-0317607fb3ff/w1_slave 2>/dev/null | tail -n 1'
         match = re.search('(?<=t=)-?\d+', str(subprocess.check_output(command, shell=True)))
         return float(match.group(0)) / 1000
 
