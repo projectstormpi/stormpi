@@ -10,6 +10,14 @@
 
 import DHT22, BMP180, TSL2561, DS18B20, logging
 
+
+def format_measurement(num):
+    if num is None:
+        return None
+    else:
+        return round(float(num), 2)
+
+
 try:
 
     # Measuring temperature and humidity
@@ -23,13 +31,13 @@ try:
     pressure, altitude = BMP180.take_measurements()
 
     print(
-        't={};w={};h={};f={};i={};v={};p={};a={};'.format(round(float(temperature), 2),
-                                                          round(float(windchill_temperature), 2),
-                                                          round(float(humidity), 2),
-                                                          round(float(full_spectrum), 2),
-                                                          round(float(infrared), 2), round(float(visible), 2),
-                                                          round(float(pressure), 2),
-                                                          round(float(altitude), 2)))
+        't={};w={};h={};f={};i={};v={};p={};a={};'.format(format_measurement(temperature),
+                                                          format_measurement(windchill_temperature),
+                                                          format_measurement(humidity),
+                                                          format_measurement(full_spectrum),
+                                                          format_measurement(infrared), format_measurement(visible),
+                                                          format_measurement(pressure),
+                                                          format_measurement(altitude)))
 
 except Exception:
 
