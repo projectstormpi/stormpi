@@ -8,7 +8,7 @@
 #       and return them formatted
 
 
-import DHT22, BMP180, TSL2561, DS18B20, logging
+import DHT22, BMP180, TSL2561, DS18B20, database, logging
 
 
 def format_measurement(num):
@@ -30,14 +30,13 @@ try:
     # Measuring air pressure and altitude
     pressure, altitude = BMP180.take_measurements()
 
-    print(
-        't={};w={};h={};f={};i={};v={};p={};a={};'.format(format_measurement(temperature),
-                                                          format_measurement(windchill_temperature),
-                                                          format_measurement(humidity),
-                                                          format_measurement(full_spectrum),
-                                                          format_measurement(infrared), format_measurement(visible),
-                                                          format_measurement(pressure),
-                                                          format_measurement(altitude)))
+    database.storeInDatabase(format_measurement(temperature),
+                             format_measurement(windchill_temperature),
+                             format_measurement(humidity),
+                             format_measurement(full_spectrum),
+                             format_measurement(infrared), format_measurement(visible),
+                             format_measurement(pressure),
+                             format_measurement(altitude))
 
 except Exception:
 
