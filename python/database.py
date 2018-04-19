@@ -17,20 +17,5 @@ def storeInDatabase(Temperature, Windchill, Humidity, Spectrum, Infrared, Visibl
     with connection:
         cur = connection.cursor()
 
-        cur.execute("INSERT INTO temperatures VALUES (NULL, CURRENT_TIMESTAMP, %s, %s, %s, %s, %s, %s, %s, %s)",
+        cur.execute("INSERT INTO measuring_result VALUES (NULL, CURRENT_TIMESTAMP, %s, %s, %s, %s, %s, %s, %s, %s)",
                     (Temperature, Windchill, Humidity, Spectrum, Infrared, Visible, Pressure, Altitude))
-
-
-def getData():
-    connection = mdb.connect("localhost", 'root', '', 'StormPi')
-    data = []
-
-    with connection:
-        cur = connection.cursor()
-
-        cur.execute("SELECT * FROM measuring_result")
-
-        for row in cur.fetchall():
-            data.append(row[0])
-
-        return data
