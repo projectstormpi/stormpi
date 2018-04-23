@@ -27,7 +27,9 @@ def store_in_database(temperature, windchill, humidity, spectrum, infrared, visi
         logging.basicConfig(filename="data.log",
                             format='',
                             level=logging.NOTSET)
-        logging.info(timestamp, temperature, windchill, humidity, spectrum, infrared, visible, pressure, altitude)
+        logging.info(
+            "{};{};{};{};{};{};{};{};{};".format(timestamp, temperature, windchill, humidity, spectrum, infrared,
+                                                 visible, pressure, altitude))
 
 
 def check_failed_data_handling():
