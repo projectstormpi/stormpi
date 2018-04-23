@@ -13,9 +13,12 @@ import DHT22, BMP180, TSL2561, DS18B20, database, logging
 
 def format_measurement(num):
     if num is None:
-        return None
+        return "NULL"
     else:
         return round(float(num), 2)
+
+
+database.check_failed_data_handling()
 
 
 try:
@@ -30,13 +33,13 @@ try:
     # Measuring air pressure and altitude
     pressure, altitude = BMP180.take_measurements()
 
-    database.storeInDatabase(format_measurement(temperature),
-                             format_measurement(windchill_temperature),
-                             format_measurement(humidity),
-                             format_measurement(full_spectrum),
-                             format_measurement(infrared), format_measurement(visible),
-                             format_measurement(pressure),
-                             format_measurement(altitude))
+    database.store_in_database(format_measurement(temperature),
+                               format_measurement(windchill_temperature),
+                               format_measurement(humidity),
+                               format_measurement(full_spectrum),
+                               format_measurement(infrared), format_measurement(visible),
+                               format_measurement(pressure),
+                               format_measurement(altitude))
 
 except Exception:
 
