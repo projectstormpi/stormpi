@@ -13,7 +13,7 @@ import DHT22, BMP180, TSL2561, DS18B20, database, logging
 
 def format_measurement(num):
     if num is None:
-        return "NULL"
+        return None
     else:
         return round(float(num), 2)
 
