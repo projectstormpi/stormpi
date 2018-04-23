@@ -39,16 +39,19 @@ def check_failed_data_handling():
             for line in lines:
                 values = line.split(';')[:-1]
 
+                for i in range(len(values)):
+                    if values[i] == "None":
+                        values[i] = None
+
                 try:
                     connection = mdb.connect("localhost", 'root', '', 'StormPi')
 
                     with connection:
                         cur = connection.cursor()
 
-                        cur.execute(
-                            "INSERT INTO measuring_result VALUES (NULL, '%s', %s, %s, %s, %s, %s, %s, %s, %s)",
-                            (values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7],
-                             values[8]))
+                        cur.execute("INSERT INTO measuring_result VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                                    values)
+
 
                 except:
                     return
