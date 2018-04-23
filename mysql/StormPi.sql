@@ -8,7 +8,6 @@
 
 # Drops
 DROP DATABASE IF EXISTS StormPi;
-DROP TABLE IF EXISTS measuring_result;
 
 
 # Database
@@ -33,5 +32,3 @@ CREATE TABLE IF NOT EXISTS measuring_result
   PRIMARY KEY (ID)
 );
 
-# Selects
-SELECT * FROM measuring_result;
