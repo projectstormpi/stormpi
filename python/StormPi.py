@@ -24,7 +24,7 @@ database.check_failed_data_handling()
 try:
 
     # Measuring temperature and humidity
-    temperature, humidity = DHT22.take_measurements()
+    humidity, temperature = DHT22.take_measurements()
     windchill_temperature = DS18B20.take_measurements()
 
     # Measuring luminosity

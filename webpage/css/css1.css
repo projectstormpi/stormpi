@@ -1,0 +1,53 @@
+#menu {
+    background: #3B6557;
+}
+
+#menu a {
+    color: #FAFAFA;
+}
+
+#menu .pure-menu-selected, #menu .pure-menu-heading {
+    background: #A6D48E;
+}
+
+body {
+    background-color: #FAFAFA;
+}
+
+.header {
+    color: black;
+}
+
+.content-subhead {
+    color: #3B6557;
+}
+
+.header h2 {
+    color: #3B6557;
+}
+
+.displaynumber {
+    color: violet;
+    font-size: 4em;
+}
+
+.pure-g {
+    text-align: center;
+}
+
+.pure-u-1, .pure-u-md-1-3 {
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+#menu .pure-menu-heading {
+    padding: 0.8em 0 0.8em 0.6em;
+}
+
+.footer {
+    font-size: 87.5%;
+    border-top: 1px solid #eee;
+    margin-top: 3.4286em;
+    padding: 1.1429em;
+    background: rgb(250, 250, 250);
+}
