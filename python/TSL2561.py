@@ -31,7 +31,17 @@ def take_measurements():
         ir = data1[1] * 256 + data1[0]
         vi = full - ir
 
-        return [full, ir, vi]
+        return recalculation(ir, vi)
 
     except Exception:
         return None, None, None
+
+
+# Light loss calculation
+def recalculation(visible, infrared):
+
+    # Conversion
+
+    full = visible + infrared
+
+    return [full, infrared, visible]
